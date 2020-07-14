@@ -1,0 +1,55 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.border-md {
+    border-width: 1.5px;
+    border-radius: 3px;
+}
+
+
+
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSES
+* ==========================================
+*
+*/
+
+body {
+    min-height: 100vh;
+}
+
+.form-control:not(select) {
+    padding: 1rem 0.5rem;
+}
+
+select.form-control {
+    height: 42px;
+    padding-left: 0.5rem;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+
+.create-button{
+    
+    border-radius: 1vw;
+    
+
+}
+.text{
+    color: white;
+}
