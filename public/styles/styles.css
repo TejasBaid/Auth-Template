@@ -53,3 +53,22 @@ select.form-control {
 .text{
     color: white;
 }
+input[type=text],  
+        
+        /* Set extra style for the cancel button*/  
+        .container {  
+            padding: 16px;  
+        }  
+      
+        .fontuser { 
+            position: relative; 
+        } 
+          
+        .fontuser i{ 
+            position: absolute; 
+            left: 15px; 
+            top: 40px; 
+            color: gray; 
+        } 
+          
+      

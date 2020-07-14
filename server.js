@@ -55,47 +55,42 @@ app.post('/login', (req,res) => {
 
 app.post('/signup', (req,res) => {
     
-    var fname = req.body.firstname
-    var lname = req.body.lastname
+    var name = req.body.name
     var email = req.body.email
-    var name = fname + " " + lname
     var password = req.body.password
-    var confPass  =req.body.passwordConfirmation
+    
     
     
     // Email Validation
-    if(password != confPass){
-        //TODO: Implement password error
-        console.log("Err");
-    }else{
-        User.find({email : email},(err,result) => {
-            if(err){
-                throw err
-            }else{
-                const count = result.length;
-                if(count <= 0){
-                    res.redirect('/success')
-                    //Hashing
-                    bcrypt.hash(password, 10, (err, hash) => {
-                        if(err){
-                            console.log(err);
-                        }else{
-                            const newUser = new User({
-                                name : name,
-                                email : email,
-                                password : hash,
-                            })
-                            newUser.save()
-                        }
-                        });
+    
+    User.find({email : email},(err,result) => {
+        if(err){
+            console.log("Error");
+        }else{
+            const count = result.length;
+            if(count <= 0){
+                res.redirect('/success')
+                //Hashing
+                bcrypt.hash(password, 10, (err, hash) => {
+                    if(err){
+                        console.log(err);
+                    }else{
+                        const newUser = new User({
+                            name : name,
+                            email : email,
+                            password : hash,
+                        })
+                        newUser.save()
+                    }
+                    });
 
-                }else{
-                    //TODO: Implement email error
-                    console.log("Email Exists");
-                }
+            }else{
+                //TODO: Implement email error
+                console.log("Email Exists");
             }
-        })   
-    }
+        }
+    })   
+    
     
 })
 
